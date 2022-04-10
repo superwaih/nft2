@@ -1,4 +1,5 @@
-import {BrowserRouter,  Routes, Route } from "react-router-dom";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Nav from "./Components/Nav";
 import {useMoralis, useMoralisWeb3ApiCall, useMoralisWeb3Api } from "react-moralis";
