@@ -1,24 +1,83 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter,  Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Nav from "./Components/Nav";
+import {useMoralis, useMoralisWeb3ApiCall, useMoralisWeb3Api } from "react-moralis";
+import Assets from "./Components/Pages/NftData";
+import Home from "./Components/Pages/Home";
+import SellNFT from "./Components/SellNFT";
+import SideNav from "./Components/SideNav";
 
 function App() {
+
+
+  const [click, setClick] = useState(false)
+
+  const handleClick = () => {
+      setClick(!click)
+  }
+  
+
+  const {
+    authenticate,
+    isWeb3Enabled,
+    isAuthenticated,
+    user,
+    enableWeb3,
+    Moralis,
+    logout
+  } = useMoralis();
+
+
+
+  useEffect(() => {
+    if (!isWeb3Enabled) {
+        enableWeb3();
+    }}, [isWeb3Enabled]);
+
+
+  // ----- Authenticate in Metamask---------
+ 
+  const [address, setAddress] = useState();
+  const [values, setValues] = useState("polygon");
+  const Web3Api = useMoralisWeb3Api();
+  // NFT API CALL
+  const { fetch: nftFetch, data: nftData } = useMoralisWeb3ApiCall(
+    Web3Api.account.getNFTs,
+    {
+      chain: values,
+    }
+  );
+  useEffect(() => { 
+      if (user) {
+        fetch({ chain: values });
+        nftFetch();
+        setAddress(user.attributes.ethAddress);
+      }
+    },  [
+    user,
+    values,
+  ]);
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+
+    <div className="">
+       <Nav authenticate={authenticate} logout={logout} click={click} handleClick={handleClick} setClick={setClick} user={user} isAuthenticated={isAuthenticated} />
+       <SideNav authenticate={authenticate} click={click} handleClick={handleClick} setClick={setClick} user={user} isAuthenticated={isAuthenticated} />
+       <Routes>
+
+        <Route path="/" exact element={<Home isAuthenticated={isAuthenticated}   nftData={nftData} />} />
+        <Route path="/swap" exact element={<SellNFT />} />
+        <Route path="/assets" exact element={<Assets nftData={nftData} />} />
+      </Routes>
+      
+      
+      
+      </div>
+    </BrowserRouter>
+    
+     
+   
   );
 }
 
