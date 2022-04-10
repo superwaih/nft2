@@ -7,6 +7,7 @@ import Assets from "./Components/Pages/NftData";
 import Home from "./Components/Pages/Home";
 import SellNFT from "./Components/SellNFT";
 import SideNav from "./Components/SideNav";
+import Faq from "./Components/Faq";
 
 function App() {
 
@@ -70,6 +71,7 @@ function App() {
         <Route path="/" exact element={<Home isAuthenticated={isAuthenticated}   nftData={nftData} />} />
         <Route path="/swap" exact element={<SellNFT />} />
         <Route path="/assets" exact element={<Assets nftData={nftData} />} />
+        <Route path="/faq" exact element={<Faq />} />
       </Routes>
       
       
