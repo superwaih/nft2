@@ -17,7 +17,7 @@ const SideNav = ({isAuthenticated, user, authenticate, handleClick, click, setCl
     <Link className=' hover:text-yellow-300' to='/faq'>
         FAQ
     </Link>
-    <Link className=' hover:text-yellow-300' to='/'>
+    <Link className=' hover:text-yellow-300' to='/farm'>
         Farm
     </Link>
     <Link className=' hover:text-yellow-300'  to='/'>
