@@ -35,7 +35,7 @@ const Polygon = ({nftData, setChooseNFT, chooseNFT, isAuthenticated}) => {
 
 
      <div class=" text-xl font-light w-full    flex flex-col space-y-6  text-gray-900 bg-[rgba(222,218,210,1)] py-8 px-8 rounded-3xl tracking-normal  text-left">
-       <div><span class="uppercase text-lg font-normal"><span>You deposit </span></span></div><div class="flex justify-between items-center"><div class="flex space-x-2">
+       <div><span class="uppercase text-lg font-normal"><span>You receive </span></span></div><div class="flex justify-between items-center"><div class="flex space-x-2">
          <div class="  cursor-pointer  hover:bg-gray-900 hover:bg-opacity-25 px-4   py-2 rounded-md flex">
            <div>NFT</div></div><div class=" cursor-pointer hover:bg-gray-900 hover:bg-opacity-25 px-4 py-2 rounded-md     "> MATIC </div></div><div class="flex space-x-4 items-end">
            <span class="text-45px"><div><span>  </span>

@@ -9,6 +9,7 @@ import SellNFT from "./Components/SellNFT";
 import SideNav from "./Components/SideNav";
 import Faq from "./Components/Faq";
 import Polygon from "./Components/Pages/Polygon";
+import Farm from "./Components/Pages/Farm";
 
 function App() {
   const[chooseNFT, setChooseNFT] =useState()
@@ -75,6 +76,7 @@ function App() {
         <Route path="/assets" exact element={<Assets nftData={nftData} />} />
         <Route path="/polygon" exact element={<Polygon isAuthenticated={isAuthenticated}   nftData={nftData} />} />
         <Route path="/faq" exact element={<Faq  />} />
+        <Route path="/farm" exact element={<Farm />} />
       </Routes>
       
       

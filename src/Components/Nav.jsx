@@ -37,7 +37,7 @@ const Nav = ({isAuthenticated, user, logout, authenticate, handleClick, click, s
          <Link className=' hover:text-yellow-300' to='/faq'>
              FAQ
          </Link>
-         <Link className=' hover:text-yellow-300' to='/'>
+         <Link className=' hover:text-yellow-300' to='/farm'>
              Farm
          </Link>
          <a className=' hover:text-yellow-300'  href="https://docs.nft20.io">
