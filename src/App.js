@@ -8,8 +8,10 @@ import Home from "./Components/Pages/Home";
 import SellNFT from "./Components/SellNFT";
 import SideNav from "./Components/SideNav";
 import Faq from "./Components/Faq";
+import Polygon from "./Components/Pages/Polygon";
 
 function App() {
+  const[chooseNFT, setChooseNFT] =useState()
 
 
   const [click, setClick] = useState(false)
@@ -68,10 +70,11 @@ function App() {
        <SideNav authenticate={authenticate} click={click} handleClick={handleClick} setClick={setClick} user={user} isAuthenticated={isAuthenticated} />
        <Routes>
 
-        <Route path="/" exact element={<Home isAuthenticated={isAuthenticated}   nftData={nftData} />} />
+        <Route path="/" exact element={<Home isAuthenticated={isAuthenticated}   nftData={nftData} chooseNFT={chooseNFT} setChooseNFT={setChooseNFT} />} />
         <Route path="/swap" exact element={<SellNFT />} />
         <Route path="/assets" exact element={<Assets nftData={nftData} />} />
-        <Route path="/faq" exact element={<Faq />} />
+        <Route path="/polygon" exact element={<Polygon isAuthenticated={isAuthenticated}   nftData={nftData} />} />
+        <Route path="/faq" exact element={<Faq  />} />
       </Routes>
       
       
