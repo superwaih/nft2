@@ -26,4 +26,7 @@ const Home = ({nftData, isAuthenticated, chooseNFT, setChooseNFT}) => {
   )
 }
 
-export default Home
+export default Home;
+
+
+
